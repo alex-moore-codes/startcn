@@ -1,4 +1,5 @@
 "use client";
+import { StartCNAgentUIMessage } from "@/ai/agents/startcn-agent.agent";
 import {
   Conversation,
   ConversationContent,
@@ -17,14 +18,15 @@ import {
   PromptInputSubmit,
   PromptInputTextarea,
 } from "@/components/ai-elements/prompt-input";
+import { Shimmer } from "@/components/ai-elements/shimmer";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { MessageCircleIcon } from "lucide-react";
+import { Brain, MessageCircleIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Chat() {
   const [input, setInput] = useState("");
-  const { messages, sendMessage } = useChat({
+  const { messages, sendMessage, status } = useChat<StartCNAgentUIMessage>({
     transport: new DefaultChatTransport({
       api: "/api/chat",
     }),
@@ -51,10 +53,33 @@ export default function Chat() {
                           </MessageContent>
                         </Message>
                       );
+                    case "tool-startCNTool":
+                      switch (part.state) {
+                        case "approval-requested":
+                          return null;
+                        case "approval-responded":
+                          return null;
+                        case "input-available":
+                          return null;
+                        case "input-streaming":
+                          return null;
+                        case "output-available":
+                          return null;
+                        case "output-error":
+                          return null;
+                        case "output-denied":
+                          return null;
+                      }
                     default:
                       return null;
                   }
                 })
+              )}
+              {status === "submitted" && (
+                <div className="flex items-center gap-2">
+                  <Brain className="size-4 text-muted-foreground" />
+                  <Shimmer>Thinking...</Shimmer>
+                </div>
               )}
             </ConversationContent>
           )}

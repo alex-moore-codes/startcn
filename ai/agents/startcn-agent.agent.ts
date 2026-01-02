@@ -1,6 +1,16 @@
-import { hasToolCall, stepCountIs, ToolLoopAgent } from "ai";
+import {
+  hasToolCall,
+  InferUITools,
+  stepCountIs,
+  ToolLoopAgent,
+  UIMessage,
+} from "ai";
 import DEV_MODEL from "../dev-model";
 import startCNTool from "../tools/startcn-tool.tool";
+
+type StartCNAgentTools = InferUITools<typeof StartCNAgent.tools>;
+
+export type StartCNAgentUIMessage = UIMessage<never, never, StartCNAgentTools>;
 
 const StartCNAgent = new ToolLoopAgent({
   model: DEV_MODEL,
