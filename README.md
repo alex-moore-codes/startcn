@@ -19,7 +19,7 @@ A production-ready Next.js starter template featuring AI SDK v6, shadcn/ui, AI E
 - 📦 **Streamdown** - Pre-configured for AI streaming components
 - 🎯 **TypeScript** - Fully typed with strict mode enabled
 - 🎨 **Tailwind CSS v4** - Modern styling with CSS variables
-- 🌙 **Dark Mode** - Built-in theme support with Next Themes, <ThemeProvider />, and <ThemeSwitcher />
+- 🌙 **Dark Mode** - Built-in theme support with Next Themes
 - 📱 **Responsive** - Mobile-first design approach
 - 🔧 **pnpm** - Fast, efficient package management
 
@@ -32,15 +32,22 @@ A production-ready Next.js starter template featuring AI SDK v6, shadcn/ui, AI E
 
 ### Installation
 
+Clone the repository
+
 ```bash
-# Clone the repository
 git clone https://github.com/alex-moore-codes/startcn.git
 cd startcn
+```
 
-# Install dependencies
+Install dependencies
+
+```bash
 pnpm install
+```
 
-# Create environment file
+Create environment file
+
+```bash
 cp .env.example .env.local
 ```
 
@@ -285,11 +292,11 @@ Important configurations already complete:
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [AI SDK Documentation](https://sdk.vercel.ai/docs)
-- [AI SDK DevTools](https://sdk.vercel.ai/docs/devtools)
+- [AI SDK DevTools](https://ai-sdk.dev/docs/ai-sdk-core/devtools#devtools)
 - [shadcn/ui Documentation](https://ui.shadcn.com)
 - [Tailwind CSS v4 Documentation](https://tailwindcss.com/docs)
-- [Workflow Dev Kit](https://github.com/vercel/workflow)
-- [Streamdown Documentation](https://github.com/vercel/streamdown)
+- [Workflow Dev Kit](https://useworkflow.dev/docs/getting-started/next)
+- [Streamdown Documentation](https://streamdown.ai/docs)
 
 ## 🤝 Contributing
 
